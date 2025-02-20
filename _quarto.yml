@@ -3,20 +3,14 @@ project:
   output-dir: docs
 
 website:
-  title: "blairkim1108.github.io"
+  title: "My phenomenal first website!"
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
-format:
-  html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
-    toc: true
-
-editor: visual
-
+    right: 
+      - text: "About Me"
+        href: about.html
+      - text: "Data Viz"
+        menu: 
+         - text: "Simpsons"
+           href: simpsons.html
+         - text: "Valentine's Day"
+           href: valentine.html

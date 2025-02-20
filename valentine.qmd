@@ -1,0 +1,47 @@
+---
+title: "valentine"
+description: |
+  Analysis of Valentine's Day Consumer Data
+author: Blair Kim
+date: February 19, 2025
+format: html
+bibliography: references.bib
+---
+
+```{r}
+# tidytuesdayR package 
+## install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2024-02-13')
+
+historical_spending <- tuesdata$historical_spending
+gifts_age <- tuesdata$gifts_age
+gifts_gender <- tuesdata$gifts_gender
+
+```
+
+```{r}
+# packages
+library(tidyverse)
+```
+
+```{r}
+# popular gift on valentine's day by year 
+
+ ggplot(historical_spending, aes(x = Year)) +
+  geom_line(aes(y = Flowers, color = "Flowers")) +
+  geom_line(aes(y = Candy, color = "Candy")) +
+  geom_line(aes(y = Jewelry, color = "Jewelry")) +
+  labs(
+    x = "Year",
+    y = "Average Percent Spending",
+    title = "Popular gift on Valentine's Day",
+    color = "Gift Type")
+
+```
+
+[@tidytuesdayR]
+
+::: {.callout-note icon="false"}
+Original data from <https://www.kaggle.com/datasets/infinator/happy-valentines-day-2022>
+:::
