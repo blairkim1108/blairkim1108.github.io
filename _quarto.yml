@@ -10,12 +10,12 @@ website:
         href: about.html
       - text: "Data Viz"
         menu:
-        - text: "Simpsons"
-        href: simpsons.html
-      - text: "Valentine's Day"
-        href: valentine.html
-      - text: "The Office"
-        href: theoffice.html
+          - text: "Simpsons"
+          href: simpsons.html
+        - text: "Valentine's Day"
+          href: valentine.html
+        - text: "The Office"
+          href: theoffice.html
   
 
 
