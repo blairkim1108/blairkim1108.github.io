@@ -11,11 +11,11 @@ website:
       - text: "Data Viz"
         menu:
           - text: "Simpsons"
-          href: simpsons.html
-        - text: "Valentine's Day"
-          href: valentine.html
-        - text: "The Office"
-          href: theoffice.html
+            href: simpsons.html
+          - text: "Valentine's Day"
+            href: valentine.html
+          - text: "The Office"
+            href: theoffice.html
   
 
 
