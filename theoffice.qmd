@@ -1,0 +1,78 @@
+---
+title: "The Office Lines"
+format: html
+editor: visual
+---
+
+```{r}
+# Get the Data
+
+the_office_lines <- read.csv("the-office_lines.csv")
+```
+
+```{r}
+# install packages 
+library(stringr)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+# Who says "hey" the most in the Office by season? 
+
+
+main_characters <- c('Pam', 'Jim', 'Michael', 'Dwight', 'Ryan', 'Andy')
+
+
+hey_by_character <- the_office_lines |> 
+  mutate(line_lower = tolower(Line)) |> 
+  filter(str_detect(line_lower, "hey")) |> 
+  group_by(Season, Character) |> 
+  summarize(count = n(), .groups = "drop") |>
+  filter(Character %in% main_characters)
+
+ggplot(hey_by_character, aes(x = Season, y = count, color = Character)) + 
+  geom_point()+
+  labs(x = 'Season', y = 'Count',
+       title = 'Who says "hey" the most in each season of The Office?') +
+    scale_x_continuous(breaks=c(1:10))
+
+```
+
+Michael says "hey" the most, and he really peaked in season 2 to 6.
+
+```{r}
+
+# Damn it Who? 
+
+the_office_lines_lower <- 
+  mutate(the_office_lines, line_lower = tolower(Line))
+
+
+damn_it <- "damn it*\\s*(\\w+)"
+
+the_office_damnit <- the_office_lines_lower |>
+  mutate(character_damn_it = str_match(line_lower, damn_it) [ ,2])  
+
+damn_it_counts <- the_office_damnit |> 
+  filter(!is.na(character_damn_it)) |>
+  group_by(Character) |>
+  summarize(count=n()) |>
+  slice_max(count, n = 10)
+
+damn_it_counts |>
+  ggplot(aes(x = Character, y = count)) +
+  geom_point() +
+  labs(
+    title = "Damn it who?",
+    x = "Character",
+    y = "Count",
+  ) +
+  theme_minimal()
+
+```
+
+Damn it, Dwight! Dwight is the character whose name is mentioned the most after the phrase "damn it".
+
+Source: <https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines/data>
