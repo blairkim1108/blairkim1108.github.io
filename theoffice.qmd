@@ -1,5 +1,5 @@
 ---
-title: "theoffice"
+title: "The office"
 description: |
   Analysis of lines from the Office
 author: Blair Kim
