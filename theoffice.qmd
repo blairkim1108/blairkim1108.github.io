@@ -1,7 +1,11 @@
 ---
 title: "theoffice"
+description: |
+  Analysis of lines from the Office
+author: Blair Kim
+date: March 5, 2025
 format: html
-editor: visual
+bibliography: references.bib
 ---
 
 ```{r}
