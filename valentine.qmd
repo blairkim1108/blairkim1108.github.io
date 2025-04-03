@@ -6,6 +6,9 @@ author: Blair Kim
 date: February 19, 2025
 format: html
 bibliography: references.bib
+execute: 
+  warning: false
+  message: false
 ---
 
 ```{r}

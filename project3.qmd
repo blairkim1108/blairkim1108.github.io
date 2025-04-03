@@ -1,0 +1,107 @@
+---
+title: "Project 3"
+format: html
+editor: visual
+author: Blair Kim
+date: April 3, 2025
+bibliography: references.bib
+execute: 
+  warning: false
+  message: false
+---
+
+```         
+In this project, I plan to test if the gender gap in salary is real, or just by random chance. In order to do this, I found a dataset online that has information about the salaries of employees at a company with their gender, age, years of experience, education level, and job title. To investigate whether gender affects employee salaries, I will shuffle the gender labels multiple times, calculating the difference in mean salaries each time to create a null distribution, and compare it to the observed difference.
+```
+
+```{r}
+# packages
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+# import dataset 
+salary <- read.csv("Salary Data.csv")
+
+# data cleaning 
+salary_clean <- salary |> filter(!is.na(Age))
+```
+
+```{r}
+# averages and median salary between men and women
+
+salary_clean |>
+  group_by(Gender) |>
+  summarize(ave_salary = mean(Salary),
+            med_salary = median(Salary)) |>
+  summarize(ave_diff = diff(ave_salary),
+            med_diff = diff(med_salary))
+```
+
+```{r}
+# generate a null sampling distribution 
+perm_data <- function(rep, data){
+  salary_clean |> 
+    select(Gender, Salary) |> 
+    mutate(salary_perm = sample(Salary, replace = FALSE)) |> 
+    group_by(Gender) |> 
+    summarize(obs_ave = mean(Salary),
+              obs_med = median(Salary),
+              perm_ave = mean(salary_perm),
+              perm_med = median(salary_perm)) |> 
+    summarize(obs_ave_diff = diff(obs_ave),
+              obs_med_diff = diff(obs_med),
+              perm_ave_diff = diff(perm_ave),
+              perm_med_diff = diff(perm_med),
+              rep = rep)
+}
+
+
+map(c(1:10), perm_data, data = Salary) |> 
+  list_rbind()
+
+
+
+```
+
+```{r}
+# visualize the null sampling distribution
+set.seed(1108)
+
+perm_stats <- map(c(1:500), perm_data, data = salary_clean) |>
+  list_rbind() 
+
+# average
+perm_stats |> 
+  ggplot(aes(x = perm_ave_diff)) + 
+  geom_histogram() + 
+  geom_vline(aes(xintercept = obs_ave_diff), color = "red")
+  labs()
+
+# median
+perm_stats |>
+  ggplot(aes(x = perm_med_diff)) +
+  geom_histogram() +
+  geom_vline(aes(xintercept = obs_med_diff), color = "red")
+  labs()
+```
+
+
+```{r}
+# p_value
+perm_stats |> 
+  summarize(p_val_ave = mean(perm_ave_diff > obs_ave_diff),
+            p_val_med = mean(perm_med_diff > obs_med_diff))
+```
+
+```
+Conclusion
+
+The observed differences are consistent with the distribution of differences in the null sampling distribution. Based on the p-values (0.078 for the average salary and 0.08 for the median salary), we fail to reject the null hypothesis. This means there isn't enough evidence to claim that, in the population, the average salary of male employees is larger than that of female employees. Similarly, we cannot claim that the median salary of male employees is larger than the median salary of female employees. Both p-values suggest that the observed differences are likely due to random chance rather than a significant difference between the two groups.
+```
+
+```         
+Source: Kiattisak Rattanaporn, Salary Prediction dataset from
+https://www.kaggle.com/datasets/rkiattisak/salaly-prediction-for-beginer?resource=download
+```
