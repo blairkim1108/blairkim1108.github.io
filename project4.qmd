@@ -1,0 +1,50 @@
+---
+title: "Project 4"
+description: |
+  Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics
+author: Blair Kim
+date: April 16, 2025
+format: html
+bibliography: references.bib
+execute: 
+  warning: false
+  message: false
+---
+
+# Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics
+
+In 2014, Facebook (currently Meta) conducted a large-scale psychological experiment on 689,003 users, manipulating their news feed to see if emotions displayed on social media are contagious (Kramer, Guillory & Hancock, 2014). Emotional contagion has traditionally been studied in real-life, in-person settings, notably in the Framingham Heart Study where researchers conducted a 20-year-long longitudinal research on 4739 individuals and found evidence that happiness is a collective phenomenon (Fowler & Christakis, 2008). Although Facebook’s emotion contagion study might be pioneering in that it found patterns of emotion contagion in digital space, the ethical integrity of this study is questionable in many aspects.
+
+### About the Study
+
+In this study, researchers randomly selected and were divided into three groups - positive emotion condition, negative emotion condition, and control. Users’ feed in the two emotion conditions were manipulated, showing posts that contained either positive or negative emotions. Then, posts that users in each condition were analyzed to measure emotionality. Results showed that the manipulation worked - for people who had less positive content in their News Feed showed more negative emotions in their status update and vice versa, providing evidence for emotion contagion in online social network.
+
+### Data Ethics Concerns
+
+1.  Consent structure
+
+    The consent structure of this study is probably the most troubling part. The study claims that by using systems that did not allow researchers to see any text, it was “consistent with Facebook’s Data Use Policy, to which all users agree prior to creating an account on Facebook” and constituted consent for this research.
+
+    However, it is hard to see such a procedure to be equivalent of standard consent procedure. In psychological research, participants are informed of what the study is about, potential harm the experiment might inflict, can leave the study at any point, and are debriefed and provided with any resources that might need to compensate for any emotional distress that might have been caused by the study. In that sense, participation to this study was not voluntary, users had no idea that their feed was being manipulated for research purposes. A Forbes article found that the research was conducted four months before adding “research” to their Data Use Policy, and users under the age of 18 may have been included in this study as there was no age filter set on the study.
+
+2.  Anonymity of data
+
+    According to the study, participants were randomly selected based on their user ID, and there was no other information about the participants reported. It seems like it’s safe to assume that data was anonymous in this research. Whether users are identifiable with their user IDs in Facebook’s on database would be a different issue and also depend on who has access to the information. Considering that one of the authors is affiliated with Facebook’s Core Data Science Team, if users are identifiable with user ID in Facebook’s own database, it would be a problem. According to [Facebook’s help article](https://www.facebook.com/help/211813265517027/), user ID is a string of numbers that does not personally identify a user but “does connect to your Facebook profile and specific chats on Messenger”, so it does seem like user ID is somewhat identifiable and the data collected in this study might not be anonymous at all.
+
+3.  Representativeness of the sample
+
+    Since users were randomly selected based on their user ID with no other demographic information provided, the study used a strictly random sample. However, since there’s is no information about the participants such as age, gender, and race, we don’t know if the sample excluded people from certain demographics.
+
+4.  Accessibility of the data
+
+    The data was not made publicly available, which means we can’t ensure reproducibility of the results and make it hard for other researchers to verify the accuracy of the data, analyses, and conclusions. The inaccessibility might also hinder further research to build upon the findings of the given study.
+
+### References
+
+1.  Fowler, J. H., & Christakis, N. A. (2008). Dynamic spread of happiness in a large social network: longitudinal analysis over 20 years in the Framingham Heart Study. *BMJ (Clinical research ed.)*, *337*, a2338. https://doi.org/10.1136/bmj.a2338
+
+2.  McNeal, G. S. (2014, July 1). *Facebook manipulated user news feeds to create emotional responses*. Forbes. https://www.forbes.com/sites/gregorymcneal/2014/06/28/facebook-manipulated-user-news-feeds-to-create-emotional-contagion/
+
+3.  Kramer, A. D., Guillory, J. E., & Hancock, J. T. (2014). Experimental evidence of massive-scale emotional contagion through social networks. *Proceedings of the National Academy of Sciences of the United States of America*, *111*(24), 8788–8790. https://doi.org/10.1073/pnas.1320040111
+
+4.  *How usernames and user ids are used on Facebook Profiles: Facebook help center*. How usernames and user IDs are used on Facebook profiles \| Facebook Help Center. (n.d.). https://www.facebook.com/help/211813265517027/

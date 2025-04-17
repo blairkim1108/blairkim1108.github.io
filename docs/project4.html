@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Blair Kim">
-<meta name="dcterms.date" content="2025-03-05">
-<meta name="description" content="Analysis of lines from the Office">
+<meta name="dcterms.date" content="2025-04-16">
+<meta name="description" content="Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics">
 
-<title>theoffice – My phenomenal first website!</title>
+<title>Project 4 – My phenomenal first website!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -172,12 +138,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">theoffice</h1>
+<h1 class="title">Project 4</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Analysis of lines from the Office</p>
+    <p>Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics</p>
   </div>
 </div>
 
@@ -194,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 5, 2025</p>
+      <p class="date">April 16, 2025</p>
     </div>
   </div>
   
@@ -206,85 +172,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the Data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>the_office_lines <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"the-office_lines.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install packages </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Who says "hey" the most in the Office by season? </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>main_characters <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Pam'</span>, <span class="st">'Jim'</span>, <span class="st">'Michael'</span>, <span class="st">'Dwight'</span>, <span class="st">'Ryan'</span>, <span class="st">'Andy'</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>hey_by_character <span class="ot">&lt;-</span> the_office_lines <span class="sc">|&gt;</span> </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">line_lower =</span> <span class="fu">tolower</span>(Line)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(line_lower, <span class="st">"hey"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Season, Character) <span class="sc">|&gt;</span> </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Character <span class="sc">%in%</span> main_characters)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(hey_by_character, <span class="fu">aes</span>(<span class="at">x =</span> Season, <span class="at">y =</span> count, <span class="at">color =</span> Character)) <span class="sc">+</span> </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">'Season'</span>, <span class="at">y =</span> <span class="st">'Count'</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">'Who says "hey" the most in each season of The Office?'</span>) <span class="sc">+</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="theoffice_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Michael says “hey” the most, and he really peaked in season 2 to 6.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Damn it Who? </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>the_office_lines_lower <span class="ot">&lt;-</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(the_office_lines, <span class="at">line_lower =</span> <span class="fu">tolower</span>(Line))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>damn_it <span class="ot">&lt;-</span> <span class="st">"damn it*</span><span class="sc">\\</span><span class="st">s*(</span><span class="sc">\\</span><span class="st">w+)"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>the_office_damnit <span class="ot">&lt;-</span> the_office_lines_lower <span class="sc">|&gt;</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">character_damn_it =</span> <span class="fu">str_match</span>(line_lower, damn_it) [ ,<span class="dv">2</span>])  </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>damn_it_counts <span class="ot">&lt;-</span> the_office_damnit <span class="sc">|&gt;</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(character_damn_it)) <span class="sc">|&gt;</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Character) <span class="sc">|&gt;</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(count, <span class="at">n =</span> <span class="dv">10</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>damn_it_counts <span class="sc">|&gt;</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Character, <span class="at">y =</span> count)) <span class="sc">+</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Damn it who?"</span>,</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Character"</span>,</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Count"</span>,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="theoffice_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Damn it, Dwight! Dwight is the character whose name is mentioned the most after the phrase “damn it”.</p>
-<p>Source: <a href="https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines/data" class="uri">https://www.kaggle.com/datasets/fabriziocominetti/the-office-lines/data</a></p>
+<section id="facebooks-emotion-manipulation-experiment---implications-in-data-ethics" class="level1">
+<h1>Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics</h1>
+<p>In 2014, Facebook (currently Meta) conducted a large-scale psychological experiment on 689,003 users, manipulating their news feed to see if emotions displayed on social media are contagious (Kramer, Guillory &amp; Hancock, 2014). Emotional contagion has traditionally been studied in real-life, in-person settings, notably in the Framingham Heart Study where researchers conducted a 20-year-long longitudinal research on 4739 individuals and found evidence that happiness is a collective phenomenon (Fowler &amp; Christakis, 2008). Although Facebook’s emotion contagion study might be pioneering in that it found patterns of emotion contagion in digital space, the ethical integrity of this study is questionable in many aspects.</p>
+<section id="about-the-study" class="level3">
+<h3 class="anchored" data-anchor-id="about-the-study">About the Study</h3>
+<p>In this study, researchers randomly selected and were divided into three groups - positive emotion condition, negative emotion condition, and control. Users’ feed in the two emotion conditions were manipulated, showing posts that contained either positive or negative emotions. Then, posts that users in each condition were analyzed to measure emotionality. Results showed that the manipulation worked - for people who had less positive content in their News Feed showed more negative emotions in their status update and vice versa, providing evidence for emotion contagion in online social network.</p>
+</section>
+<section id="data-ethics-concerns" class="level3">
+<h3 class="anchored" data-anchor-id="data-ethics-concerns">Data Ethics Concerns</h3>
+<ol type="1">
+<li><p>Consent structure</p>
+<p>The consent structure of this study is probably the most troubling part. The study claims that by using systems that did not allow researchers to see any text, it was “consistent with Facebook’s Data Use Policy, to which all users agree prior to creating an account on Facebook” and constituted consent for this research.</p>
+<p>However, it is hard to see such a procedure to be equivalent of standard consent procedure. In psychological research, participants are informed of what the study is about, potential harm the experiment might inflict, can leave the study at any point, and are debriefed and provided with any resources that might need to compensate for any emotional distress that might have been caused by the study. In that sense, participation to this study was not voluntary, users had no idea that their feed was being manipulated for research purposes. A Forbes article found that the research was conducted four months before adding “research” to their Data Use Policy, and users under the age of 18 may have been included in this study as there was no age filter set on the study.</p></li>
+<li><p>Anonymity of data</p>
+<p>According to the study, participants were randomly selected based on their user ID, and there was no other information about the participants reported. It seems like it’s safe to assume that data was anonymous in this research. Whether users are identifiable with their user IDs in Facebook’s on database would be a different issue and also depend on who has access to the information. Considering that one of the authors is affiliated with Facebook’s Core Data Science Team, if users are identifiable with user ID in Facebook’s own database, it would be a problem. According to <a href="https://www.facebook.com/help/211813265517027/">Facebook’s help article</a>, user ID is a string of numbers that does not personally identify a user but “does connect to your Facebook profile and specific chats on Messenger”, so it does seem like user ID is somewhat identifiable and the data collected in this study might not be anonymous at all.</p></li>
+<li><p>Representativeness of the sample</p>
+<p>Since users were randomly selected based on their user ID with no other demographic information provided, the study used a strictly random sample. However, since there’s is no information about the participants such as age, gender, and race, we don’t know if the sample excluded people from certain demographics.</p></li>
+<li><p>Accessibility of the data</p>
+<p>The data was not made publicly available, which means we can’t ensure reproducibility of the results and make it hard for other researchers to verify the accuracy of the data, analyses, and conclusions. The inaccessibility might also hinder further research to build upon the findings of the given study.</p></li>
+</ol>
+</section>
+<section id="references" class="level3">
+<h3 class="anchored" data-anchor-id="references">References</h3>
+<ol type="1">
+<li><p>Fowler, J. H., &amp; Christakis, N. A. (2008). Dynamic spread of happiness in a large social network: longitudinal analysis over 20 years in the Framingham Heart Study. <em>BMJ (Clinical research ed.)</em>, <em>337</em>, a2338. https://doi.org/10.1136/bmj.a2338</p></li>
+<li><p>McNeal, G. S. (2014, July 1). <em>Facebook manipulated user news feeds to create emotional responses</em>. Forbes. https://www.forbes.com/sites/gregorymcneal/2014/06/28/facebook-manipulated-user-news-feeds-to-create-emotional-contagion/</p></li>
+<li><p>Kramer, A. D., Guillory, J. E., &amp; Hancock, J. T. (2014). Experimental evidence of massive-scale emotional contagion through social networks. <em>Proceedings of the National Academy of Sciences of the United States of America</em>, <em>111</em>(24), 8788–8790. https://doi.org/10.1073/pnas.1320040111</p></li>
+<li><p><em>How usernames and user ids are used on Facebook Profiles: Facebook help center</em>. How usernames and user IDs are used on Facebook profiles | Facebook Help Center. (n.d.). https://www.facebook.com/help/211813265517027/</p></li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
