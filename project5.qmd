@@ -95,7 +95,7 @@ order by vehicle_stops DESC
 sd_vehicle_stops
 ```
 
-Were more POC drivers stopped by police in the past then now in LA?
+#### Were more POC drivers stopped by police in the past then now in LA?
 
 ```{sql connection=con_traffic}
 #| output.var: "la_POC_stops_by_year"
@@ -125,15 +125,7 @@ la_POC_stops_by_year|>
 
 Among all racial groups, Hispanic drivers were most likely to be stopped by police in LA. It seems like there was a sharp increase in stops of POC drivers in 2011, but the numbers gradually decreased over time.
 
-```{sql connection=con_traffic}
-DESCRIBE ca_san_francisco_2020_04_01	
-```
-
-```{sql connection=con_traffic}
-DESCRIBE ca_san_jose_2020_04_01	
-```
-
-What time of the day are people most likely to be arrested in San Jose?
+#### What time of the day are people most likely to be arrested in San Jose and San Francisco?
 
 ```{sql connection=con_traffic}
 #| output.var: "san_jose_arrests_by_time"
@@ -152,8 +144,6 @@ san_jose_arrests_by_time |>
   theme_minimal() +
   labs(title = "# of arrests by hour in San Jose", y = "number of arrests", x = "hour") 
 ```
-
-What about in San Francisco?
 
 ```{sql connection=con_traffic}
 #| output.var: "sf_arrests_by_time"
@@ -175,6 +165,6 @@ sf_arrests_by_time |>
 
 In San Jose, around 9 AM is the peak time for getting arrested on the road. In San Francisco, around 5pm and midnight is when people get arrested most often.
 
-References
+#### References
 
 Pierson, Emma, Camelia Simoiu, Jan Overgoor, Sam Corbett-Davies, Daniel Jenson, Amy Shoemaker, Vignesh Ramachandran, et al. 2020. “A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” *Nature Human Behaviour*, 1–10.
