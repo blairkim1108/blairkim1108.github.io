@@ -337,7 +337,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 6          1234                   &lt;NA&gt;</code></pre>
 </div>
 </div>
-<p>Were more POC drivers stopped by police in the past then now in LA?</p>
+<section id="were-more-poc-drivers-stopped-by-police-in-the-past-then-now-in-la" class="level4">
+<h4 class="anchored" data-anchor-id="were-more-poc-drivers-stopped-by-police-in-the-past-then-now-in-la">Were more POC drivers stopped by police in the past then now in LA?</h4>
 <div class="cell" data-output.var="la_POC_stops_by_year">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> subject_race <span class="kw">as</span> race, <span class="dt">year</span>(<span class="dt">date</span>) <span class="kw">as</span> <span class="dt">year</span>, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> num_stops</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> ca_los_angeles_2020_04_01</span>
@@ -405,221 +406,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Among all racial groups, Hispanic drivers were most likely to be stopped by police in LA. It seems like there was a sharp increase in stops of POC drivers in 2011, but the numbers gradually decreased over time.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>DESCRIBE ca_san_francisco_2020_04_01    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Displaying records 1 - 10</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Null</th>
-<th style="text-align: left;">Key</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">raw_row_number</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">location</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">lat</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">lng</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">district</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">subject_age</td>
-<td style="text-align: left;">bigint(20)</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">subject_race</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">subject_sex</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>DESCRIBE ca_san_jose_2020_04_01 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Displaying records 1 - 10</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Field</th>
-<th style="text-align: left;">Type</th>
-<th style="text-align: left;">Null</th>
-<th style="text-align: left;">Key</th>
-<th style="text-align: left;">Default</th>
-<th style="text-align: left;">Extra</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">raw_row_number</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">date</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">time</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">location</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">lat</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">lng</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">subject_race</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">type</td>
-<td style="text-align: left;">text</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">arrest_made</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">citation_issued</td>
-<td style="text-align: left;">double</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>What time of the day are people most likely to be arrested in San Jose?</p>
+</section>
+<section id="what-time-of-the-day-are-people-most-likely-to-be-arrested-in-san-jose-and-san-francisco" class="level4">
+<h4 class="anchored" data-anchor-id="what-time-of-the-day-are-people-most-likely-to-be-arrested-in-san-jose-and-san-francisco">What time of the day are people most likely to be arrested in San Jose and San Francisco?</h4>
 <div class="cell" data-output.var="san_jose_arrests_by_time">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">hour</span>(<span class="dt">time</span>) <span class="kw">as</span> <span class="kw">hour</span>, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> cases </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> ca_san_jose_2020_04_01 </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> outcome <span class="op">=</span> <span class="st">'arrest'</span>  </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> <span class="kw">hour</span>(<span class="dt">time</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> cases <span class="kw">desc</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize number of arrests by hour in San Jose</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>san_jose_arrests_by_time <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"# of arrests by hour in San Jose"</span>, <span class="at">y =</span> <span class="st">"number of arrests"</span>, <span class="at">x =</span> <span class="st">"hour"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project5_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-output.var="sf_arrests_by_time">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">hour</span>(<span class="dt">time</span>) <span class="kw">as</span> <span class="kw">hour</span>, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> cases </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> ca_san_jose_2020_04_01 </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> ca_san_francisco_2020_04_01    </span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> outcome <span class="op">=</span> <span class="st">'arrest'</span>  </span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> <span class="kw">hour</span>(<span class="dt">time</span>)</span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> cases <span class="kw">desc</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize number of arrests by hour in San Jose</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>san_jose_arrests_by_time <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize number of arrests by hour in San Francisco</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>sf_arrests_by_time <span class="sc">|&gt;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"# of arrests by hour in San Jose"</span>, <span class="at">y =</span> <span class="st">"number of arrests"</span>, <span class="at">x =</span> <span class="st">"hour"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"# of arrests by hour in San Francisco"</span>, <span class="at">y =</span> <span class="st">"number of arrests"</span>, <span class="at">x =</span> <span class="st">"hour"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -628,34 +453,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>What about in San Francisco?</p>
-<div class="cell" data-output.var="sf_arrests_by_time">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span> <span class="kw">hour</span>(<span class="dt">time</span>) <span class="kw">as</span> <span class="kw">hour</span>, <span class="fu">count</span>(<span class="op">*</span>) <span class="kw">as</span> cases </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> ca_san_francisco_2020_04_01    </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">where</span> outcome <span class="op">=</span> <span class="st">'arrest'</span>  </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">group</span> <span class="kw">by</span> <span class="kw">hour</span>(<span class="dt">time</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="kw">order</span> <span class="kw">by</span> cases <span class="kw">desc</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize number of arrests by hour in San Francisco</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sf_arrests_by_time <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> cases)) <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"# of arrests by hour in San Francisco"</span>, <span class="at">y =</span> <span class="st">"number of arrests"</span>, <span class="at">x =</span> <span class="st">"hour"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="project5_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>In San Jose, around 9 AM is the peak time for getting arrested on the road. In San Francisco, around 5pm and midnight is when people get arrested most often.</p>
-<p>References</p>
+</section>
+<section id="references" class="level4">
+<h4 class="anchored" data-anchor-id="references">References</h4>
 <p>Pierson, Emma, Camelia Simoiu, Jan Overgoor, Sam Corbett-Davies, Daniel Jenson, Amy Shoemaker, Vignesh Ramachandran, et al.&nbsp;2020. “A Large-Scale Analysis of Racial Disparities in Police Stops Across the United States.” <em>Nature Human Behaviour</em>, 1–10.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
