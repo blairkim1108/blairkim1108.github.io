@@ -1,0 +1,92 @@
+---
+title: "final presentation"
+author: "Blair Kim"
+subtitle: "May 8th, 2025"
+format:
+  revealjs:
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    preview-links: false 
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# **Facebook’s Emotion Manipulation Experiment - Implications in Data Ethics**
+
+## Introduction
+
+-   In 2014, Facebook (now Meta) ran a large‑scale psychological experiment on 689,003 users, altering their News Feed to test whether emotions on social media are contagious (Kramer, Guillory & Hancock, 2014).
+
+-   Emotional contagion had previously been studied in person—e.g., the Framingham Heart Study tracked 4,739 individuals over 20 years and found that happiness spreads through social networks (Fowler & Christakis, 2008).
+
+-   While pioneering in the digital realm, Facebook’s study raises serious ethical questions about how users were informed and protected.
+
+## Data Ethics Principles
+
+from [Data Values and Principles manifesto](https://datapractices.org/manifesto/)
+
+As data teams, we aim to...
+
+1.  Use data to improve life for our users, customers, organizations, and communities.
+2.  Create reproducible and extensible work.
+3.  Recognize and mitigate bias in ourselves and in the data we use.
+4.  Consider carefully the ethical implications of choices we make when using data, and the impacts of our work on individuals and society.
+5.  Protect the privacy and security of individuals represented in our data.
+
+## About the Study
+
+-   **Method:** Randomly assigned users to one of three groups—positive‑emotion, negative‑emotion, or control—and manipulated the emotional content in their News Feed.
+
+-   **Measure:** Collected and analyzed subsequent status updates to quantify changes in users’ emotional expression.
+
+-   **Results:** Users exposed to fewer positive posts wrote more negative updates (and vice versa), demonstrating online emotional contagion.
+
+## Data Ethics Concern: Consent Structure
+
+-   Claimed “consent” via Facebook’s Data Use Policy, rather than through informed‐consent procedures standard in psychological research.
+
+-   No participant briefing on study aims, potential harms, right to withdraw, or debriefing and support for emotional distress.
+
+-   Conducted before “research” was explicitly added to the policy; likely included minors without age screening.
+
+## Data Ethics Concern: Anonymity of data
+
+-   Participants identified only by user ID, but these IDs link to personal profiles and Messenger chats.
+
+-   Facebook researchers’ internal access could re‑identify individuals, compromising true anonymity.
+
+## Data Ethics Concern: Representativeness of the Sample
+
+-   Sampling by user ID was strictly random, yet no demographic data (age, gender, race) were collected or reported.
+
+-   Unknown whether certain groups were over‑ or under‑represented, limiting the study’s generalizability.
+
+-   Questionable whether results can be generalized to people who are not on Facebook
+
+## Data Ethics Concern: Accessibility of the Data
+
+-   Raw data were not made publicly available, protecting user privacy but preventing reproducibility.
+
+-   Lack of open access hinders independent verification of analyses and further research building on these findings.
+
+## Conclusion
+
+-   Emotional contagion in digital space might be real.
+
+-   Although the findings of the study were pioneering, ethics of this study is problematic.
+
+-   Better data collection practice is important for the integrity of the research and reliability of its findings.
+
+## **References**
+
+1.  Fowler, J. H., & Christakis, N. A. (2008). Dynamic spread of happiness in a large social network: longitudinal analysis over 20 years in the Framingham Heart Study. *BMJ (Clinical research ed.)*, *337*, a2338. https://doi.org/10.1136/bmj.a2338
+
+2.  McNeal, G. S. (2014, July 1). *Facebook manipulated user news feeds to create emotional responses*. Forbes. https://www.forbes.com/sites/gregorymcneal/2014/06/28/facebook-manipulated-user-news-feeds-to-create-emotional-contagion/
+
+3.  Kramer, A. D., Guillory, J. E., & Hancock, J. T. (2014). Experimental evidence of massive-scale emotional contagion through social networks. *Proceedings of the National Academy of Sciences of the United States of America*, *111*(24), 8788–8790. https://doi.org/10.1073/pnas.1320040111
+
+4.  *How usernames and user ids are used on Facebook Profiles: Facebook help center*. How usernames and user IDs are used on Facebook profiles \| Facebook Help Center. (n.d.). https://www.facebook.com/help/211813265517027/
