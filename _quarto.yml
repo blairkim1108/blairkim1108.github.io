@@ -21,6 +21,8 @@ website:
          - text: "Proejct 4"
            href: project4.html  
          - text: "Proejct 5"
-           href: project5.html        
+           href: project5.html
+         - text: "Final Presentation"
+           href: finalpresentation.html     
 
 
