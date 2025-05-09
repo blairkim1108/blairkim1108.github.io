@@ -1,5 +1,5 @@
 ---
-title: "theoffice"
+title: "The Office"
 description: |
   Analysis of lines from the Office
 author: Blair Kim
@@ -10,6 +10,12 @@ execute:
   warning: false
   message: false
 ---
+
+# About the data
+
+This data contains lines from every season of The Office.
+
+# Analysis
 
 ```{r}
 # Get the Data

@@ -33,11 +33,11 @@ In this study, researchers randomly selected and were divided into three groups 
 
 3.  Representativeness of the sample
 
-    Since users were randomly selected based on their user ID with no other demographic information provided, the study used a strictly random sample. However, since there’s is no information about the participants such as age, gender, and race, we don’t know if the sample excluded people from certain demographics.
+    Since users were randomly selected based on their user ID with no other demographic information provided, the study used a strictly random sample. However, since there’s is no information about the participants such as age, gender, and race, we don’t know if the sample excluded people from certain demographics. Also, the reprensetativeness of the sample is limited to Facebook users over time period, which is different from all people.
 
 4.  Accessibility of the data
 
-    The data was not made publicly available, which means we can’t ensure reproducibility of the results and make it hard for other researchers to verify the accuracy of the data, analyses, and conclusions. The inaccessibility might also hinder further research to build upon the findings of the given study.
+    The data was not made publicly available, which was probably the right thing to do considering privacy concerns. However, inaccessibility of the data we can’t ensure reproducibility of the results and make it hard for other researchers to verify the accuracy of the data, analyses, and conclusions. The inaccessibility might also hinder further research to build upon the findings of the given study.
 
 ### References
 

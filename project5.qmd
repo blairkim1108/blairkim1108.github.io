@@ -52,12 +52,12 @@ Number of vehicle stops by race in big cities in California - San Francisco, Los
 ```{sql connection=con_traffic}
 #| output.var: "sf_vehicle_stops"
 
-select count(*) as vehicle_stops,
-subject_race as race
-from ca_san_francisco_2020_04_01	
-where type = 'vehicular'
-group by subject_race
-order by vehicle_stops DESC
+SELECT count(*) AS vehicle_stops,
+subject_race AS race
+FROM ca_san_francisco_2020_04_01	
+WHERE type = 'vehicular'
+GROUP BY subject_race
+ORDER BY vehicle_stops DESC
 ```
 
 ```{r}
@@ -67,13 +67,12 @@ sf_vehicle_stops
 ```{sql connection=con_traffic}
 #| output.var: "la_vehicle_stops"
 
-select count(*) as vehicle_stops,
-subject_race as race
-from ca_los_angeles_2020_04_01		
-where type = 'vehicular'
-group by subject_race
-order by vehicle_stops DESC
-
+SELECT count(*) AS vehicle_stops,
+subject_race AS race
+FROM ca_los_angeles_2020_04_01		
+WHERE type = 'vehicular'
+GROUP BY subject_race
+ORDER BY vehicle_stops DESC
 ```
 
 ```{r}
@@ -83,12 +82,12 @@ la_vehicle_stops
 ```{sql connection=con_traffic}
 #| output.var: "sd_vehicle_stops"
 
-select count(*) as vehicle_stops,
-subject_race as race
-from ca_san_diego_2020_04_01		
-where type = 'vehicular'
-group by subject_race
-order by vehicle_stops DESC
+SELECT count(*) AS vehicle_stops,
+subject_race AS race
+FROM ca_san_diego_2020_04_01		
+WHERE type = 'vehicular'
+GROUP BY subject_race
+ORDER BY vehicle_stops DESC
 ```
 
 ```{r}
@@ -100,11 +99,11 @@ sd_vehicle_stops
 ```{sql connection=con_traffic}
 #| output.var: "la_POC_stops_by_year"
 
-select subject_race as race, year(date) as year, count(*) as num_stops
-from ca_los_angeles_2020_04_01
-where subject_race != 'white' and date IS NOT NULL 
-group by race, year(date)
-order by year asc
+SELECT subject_race AS race, year(date) AS year, count(*) AS num_stops
+FROM ca_los_angeles_2020_04_01
+WHERE subject_race != 'white' AND date IS NOT NULL 
+GROUP BY race, year(date)
+ORDER BY year ASC
 ```
 
 ```{r}
@@ -129,15 +128,15 @@ Among all racial groups, Hispanic drivers were most likely to be stopped by poli
 
 ```{sql connection=con_traffic}
 #| output.var: "san_jose_arrests_by_time"
-select hour(time) as hour, count(*) as cases 
-from ca_san_jose_2020_04_01	
-where outcome = 'arrest'  
-group by hour(time)
-order by cases desc 
+SELECT hour(time) AS hour, count(*) AS cases 
+FROM ca_san_jose_2020_04_01	
+WHERE outcome = 'arrest'  
+GROUP BY hour(time)
+ORDER BY cases DESC 
 ```
 
 ```{r}
-# visualize number of arrests by hour in San Jose
+# visualize number of arrests by hour and year in San Jose
 san_jose_arrests_by_time |>
   ggplot(aes(x = hour, y = cases)) +
   geom_line() +
@@ -146,24 +145,62 @@ san_jose_arrests_by_time |>
 ```
 
 ```{sql connection=con_traffic}
-#| output.var: "sf_arrests_by_time"
-select hour(time) as hour, count(*) as cases 
-from ca_san_francisco_2020_04_01	
-where outcome = 'arrest'  
-group by hour(time)
-order by cases desc 
+#| output.var: "san_jose_arrests_by_time"
+SELECT hour(time) AS hour, year(date) AS year, count(*) AS cases 
+FROM ca_san_jose_2020_04_01	
+WHERE outcome = 'arrest'  
+GROUP BY hour(time), year(date)
+ORDER BY cases DESC 
 ```
 
 ```{r}
-# visualize number of arrests by hour in San Francisco
-sf_arrests_by_time |>
+# visualize number of arrests by hour and year in San Jose
+san_jose_arrests_by_time |>
+  ggplot(aes(x = hour, y = cases, group = year)) +
+  geom_line(aes(color = year)) +
+  theme_minimal() +
+  labs(title = "# of arrests by hour in San Jose over time", y = "number of arrests", x = "hour") 
+```
+
+```{sql connection=con_traffic}
+#| output.var: "san_francisco_arrests_by_time"
+SELECT hour(time) AS hour, count(*) AS cases 
+FROM ca_san_francisco_2020_04_01	
+WHERE outcome = 'arrest'  
+GROUP BY hour(time)
+ORDER BY cases DESC 
+```
+
+```{r}
+# visualize number of arrests by hour and year in San Jose
+san_francisco_arrests_by_time |>
   ggplot(aes(x = hour, y = cases)) +
   geom_line() +
   theme_minimal() +
   labs(title = "# of arrests by hour in San Francisco", y = "number of arrests", x = "hour") 
 ```
 
-In San Jose, around 9 AM is the peak time for getting arrested on the road. In San Francisco, around 5pm and midnight is when people get arrested most often.
+```{sql connection=con_traffic}
+#| output.var: "sf_arrests_by_time"
+select hour(time) as hour, year(date) AS year, count(*) as cases 
+from ca_san_francisco_2020_04_01	
+where outcome = 'arrest'  
+group by hour(time), year(date)
+order by cases desc 
+```
+
+```{r}
+# visualize number of arrests by hour in San Francisco
+sf_arrests_by_time |>
+  ggplot(aes(x = hour, y = cases, group = year)) +
+  geom_line(aes(color = year)) +
+  theme_minimal() +
+  labs(title = "# of arrests by hour in San Francisco over time", y = "number of arrests", x = "hour")
+```
+
+In San Jose, around 9 AM is the peak time for getting arrested on the road. In San Francisco, around 5pm and midnight is when people get arrested most often. The trend looks consistent over time, but there were more arrests overall back in 2013 (dark blue line) than recently in 2018 (light blue line).
+
+```
 
 #### References
 

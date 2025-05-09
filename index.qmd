@@ -1,5 +1,19 @@
 ---
-title: "blairkim1108.github.io"
+title: "Blair Kim"
+image: myprofile.jpg
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/blair-kim/
+    - text: GitHub
+      href: https://github.com/blairkim1108
+    - text: Email
+      href: ykad2018@pomona.edu
 ---
 
-This is a Quarto website.
+I’m a senior at Pomona College majoring in Psychological Science set to graduate in May 2025.I’m proficient in Figma, R, SQL, and Tableau, and in my free time I love reading, gaming, drawing, and playing the piano.
+

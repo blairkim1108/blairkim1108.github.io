@@ -1,5 +1,5 @@
 ---
-title: "Project 3"
+title: "Salary Gender Gap"
 format: html
 editor: visual
 author: Blair Kim
@@ -10,9 +10,11 @@ execute:
   message: false
 ---
 
-```         
-In this project, I plan to test if the gender gap in salary is real, or just by random chance. In order to do this, I found a dataset online that has information about the salaries of employees at a company with their gender, age, years of experience, education level, and job title. To investigate whether gender affects employee salaries, I will shuffle the gender labels multiple times, calculating the difference in mean salaries each time to create a null distribution, and compare it to the observed difference.
-```
+# Introduction
+
+In this project, I plan to test if the gender gap in salary is real, or just by random chance. In order to do this, I found a dataset on Kaggle that has information about the salaries of employees at a company with their gender, age, years of experience, education level, and job title.
+
+# Analysis
 
 ```{r}
 # packages
@@ -61,8 +63,6 @@ perm_data <- function(rep, data){
 map(c(1:10), perm_data, data = Salary) |> 
   list_rbind()
 
-
-
 ```
 
 ```{r}
@@ -77,16 +77,13 @@ perm_stats |>
   ggplot(aes(x = perm_ave_diff)) + 
   geom_histogram() + 
   geom_vline(aes(xintercept = obs_ave_diff), color = "red")
-  labs()
 
 # median
 perm_stats |>
   ggplot(aes(x = perm_med_diff)) +
   geom_histogram() +
   geom_vline(aes(xintercept = obs_med_diff), color = "red")
-  labs()
 ```
-
 
 ```{r}
 # p_value
@@ -95,13 +92,8 @@ perm_stats |>
             p_val_med = mean(perm_med_diff > obs_med_diff))
 ```
 
-```
-Conclusion
+# Conclusion
 
-The observed differences are consistent with the distribution of differences in the null sampling distribution. Based on the p-values (0.078 for the average salary and 0.08 for the median salary), we fail to reject the null hypothesis. This means there isn't enough evidence to claim that, in the population, the average salary of male employees is larger than that of female employees. Similarly, we cannot claim that the median salary of male employees is larger than the median salary of female employees. Both p-values suggest that the observed differences are likely due to random chance rather than a significant difference between the two groups.
-```
+The observed differences are consistent with the distribution of differences in the null sampling distribution. Based on the p-values (0.078 for the average salary and 0.08 for the median salary), we fail to reject the null hypothesis. This means there isn't enough evidence to claim that, in the population, the average salary of male employees is larger than that of female employees. Similarly, we cannot claim that the median salary of male employees is larger than the median salary of female employees. Both p-values suggest we do not have enough evidence to rule out random chance.
 
-```         
-Source: Kiattisak Rattanaporn, Salary Prediction dataset from
-https://www.kaggle.com/datasets/rkiattisak/salaly-prediction-for-beginer?resource=download
-```
+Source: Kiattisak Rattanaporn, Salary Prediction dataset from <https://www.kaggle.com/datasets/rkiattisak/salaly-prediction-for-beginer?resource=download>

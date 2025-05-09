@@ -1,9 +1,68 @@
 ---
-title: "About"
+title: "about"
+author: "Blair Kim"
+date: ""
+format:
+  html:
+    toc: false
+    paged: false
 ---
 
-About this site
+# Contact
 
-```{r}
+-   (909) 267‑4560\
+-   Claremont, CA\
+-   ykad2018\@pomona.edu\
+-   [LinkedIn](https://www.linkedin.com/in/blair-kim/)
 
-```
+# Education
+
+**Pomona College**, Claremont, CA\
+*B.A. Psychology* (Sep 2018 – May 2025)\
+**Relevant coursework:** Research Design & Methodology, Behavioral Psychology, Data Mining for Psychologists, Intro to Statistics, Intro CS with Python/Machine Learning, Social Psychology, Foundations of 2D Design, Data Science with R
+
+# Professional Experience
+
+### BAR 21 (Remote)
+
+**Product Lead** (Aug 2024 – Present)\
+- Led game development as Product Lead for a 20‑member team, overseeing project planning, sprint coordination, documentation, and backlog prioritization to ensure timely delivery and cross‑team alignment.\
+- Spearheaded game design documentation, structuring core mechanics and narrative while researching references to establish a cohesive design framework.\
+- Designed in‑game user interface (UI) in collaboration with engineers and game artists to enhance player experience, and led quality assurance efforts by introducing a structured QA process to improve game stability and performance.
+
+### Daangn Market Inc. (Seoul, South Korea)
+
+**Product Manager Intern, Advertising Platform** (Jan 2024 – Aug 2024)\
+- Identified demand‑side platform (DSP) user pain points in ad rejection due to business verification document submission difficulties; streamlined document submission during account creation, reducing ad rejection rate by 13 pp.\
+- Defined business requirements and authored PRDs for contract termination workflows in Ad Agency Platform and Ad Admin, collaborating with designers and engineers to deliver features on time.\
+- Analyzed UI/UX of competitor data‑management platforms (DMPs) and ran user surveys to enhance ad reports by adding campaign/group filters and a catalog ad report feature; led QA testing and post‑production monitoring, improving ad report performance by 50 %.\
+- Resolved ad bulk registration abuse by implementing throttling, warning modals, and Slack alerts, cutting abuse cases by 59 %.
+
+### Atommerce (Seoul, South Korea)
+
+**Product Owner Intern, Product Team** (Feb 2023 – Jan 2024)\
+- Managed end‑to‑end payment gateway approval process and localization for paid teletherapy service in Japan; coordinated app packaging and documentation, reducing approval time by 75 %.\
+- Analyzed user flow and VoCs to improve acquisition, activation, and retention; drafted PRDs and wireframes for in‑app onboarding and community posting, boosting sign‑up conversion by 12 pp and engagement by 10 pp.\
+- Owned SEO project, doubling organic web traffic and increasing impressions; handled weekly metric reporting and sprint ceremonies.
+
+### Datbyeoul Education (Seoul, South Korea)
+
+**Program Manager** (Sep 2019 – Jul 2024)\
+- Collaborated with five private/public schools and local governments to design and implement innovative curricula and programs.\
+- Supervised Model United Nations conferences for middle and high schools; drafted Rules of Procedure, guidebooks, and agendas; led regular student trainings.
+
+# Project Experience
+
+### Visual Presentation of Information and Digital Product Usability Across Cultures
+
+**Project Lead** (Aug 2024 – Present)\
+- Designed and ran an experiment examining how analytic vs. holistic thinking styles affect usability perceptions across cultures, using the Analysis‑Holism Scale.\
+- Created mock websites with varied visual complexity to measure satisfaction, efficiency, and performance under controlled conditions.\
+- Performed power analysis in G\*Power and used multiple linear regression to evaluate relationships between thinking style, visual complexity, and usability metrics.
+
+# Skills
+
+-   **Languages:** English & Korean (native)\
+-   **Data Analysis:** Python, R, SQL, Tableau, Superset, Google Analytics\
+-   **Productivity:** Notion, Jira, Confluence, ClickUp, Microsoft Office (Excel, PPT, Word), Google Workspace, Qualtrics\
+-   **Design:** Figma, Adobe Creative Suite (InDesign, XD, Illustrator, Photoshop)

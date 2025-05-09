@@ -1,15 +1,21 @@
 ---
-title: "simpsons"
+title: "Simpsons"
 description: |
   Analysis of Donuts, Data, and D'oh - A Deep Dive into The Simpsons from TidyTuesday
 author: Blair Kim
 date: February 12, 2025
 format: html
 bibliography: references.bib
+execute: 
+  warning: false
+  message: false
 ---
 
-```{r}
+# About the data
 
+This dataset is from tidytuesday and contains the character, locations, episode details, and script lines for about 600 Simpsons episodes.
+
+```{r}
 install.packages("tidytuesdayR", repos = "https://cloud.r-project.org/")
 library("tidytuesdayR")
 ```
@@ -100,6 +106,8 @@ simpsons_episodes <- simpsons_episodes |>
 simpsons_script_lines <- simpsons_script_lines |> 
   dplyr::semi_join(simpsons_episodes, by = c("episode_id" = "id"))
 ```
+
+# Analysis
 
 ```{r}
 # simpsons ratings by seasons

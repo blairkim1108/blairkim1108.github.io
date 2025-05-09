@@ -1,0 +1,55 @@
+---
+title: "Project 6"
+format: html
+editor: visual
+author: Blair Kim
+date: May 8, 2025
+bibliography: references.bib
+execute: 
+  warning: false
+  message: false
+---
+
+# Updates
+
+### Index
+
+Added brief introduction, image, and button links to social media pages.
+
+## About 
+
+Added my resume.
+
+## Data Viz
+
+#### Simpsons
+
+-   Added YAML code to hide messages and warnings.
+
+-   Added a brief description of the data.
+
+#### Valentine's Day
+
+-   Added a brief description of the data.
+
+### The Office
+
+-   Edited page title.
+
+-   Added a brief description of the data.
+
+### Mini-Project 3
+
+-   Moved text from code blocks to plain text so that it's easier to read.
+
+-   Edited introduction and conclusion to avoid causal claims and claims like "the null hypothesis is true."
+
+### Project 4
+
+-   Added additional analysis under Data Ethics concern - Representativeness and Accessibility.
+
+### Project 5
+
+-   Edited SQL functions in all caps.
+
+-   Added a graph that shows the number of arrest by time of the day in different years.

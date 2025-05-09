@@ -11,6 +11,12 @@ execute:
   message: false
 ---
 
+# About the data 
+
+This data is by NRF survey about how consumers plan to celebrate Valentine's Day annually for over a decade. It provides a demographic breakdown of total spending, average spending, types of gifts planned and spending per type of gift.
+
+# Analysis
+
 ```{r}
 # tidytuesdayR package 
 ## install.packages("tidytuesdayR")
